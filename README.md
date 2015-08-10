@@ -1,5 +1,6 @@
 # rocketResX
-# Description: Change the string 'ResX=1920' in %MyDocuments_Location%\My Games\Rocket League\TAGame\Config\TASystemSettings.ini to 'ResX=3840'.
+# Description: 
+	Change the string 'ResX=1920' in %MyDocuments_Location%\My Games\Rocket League\TAGame\Config\TASystemSettings.ini to 'ResX=3840'.
 
 # Pre-req for creating exe:
 	# Install py2exe and python
