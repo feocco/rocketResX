@@ -28,7 +28,7 @@ class RocketResX(object):
 
 
 	def runtime(self):
-		inp = input('Press 1 for 1 Monitor.\nPress 2 for 2 Monitors.')
+		inp = input('Press 1 for 1 Monitor.\nPress 2 for 2 Monitors.\n')
 		if inp == '1':
 			self.replace(self.ConfigFilePath, self.Monitors2, self.Monitors1)
 		else:
