@@ -4,7 +4,7 @@ class RocketResX(object):
 		super(RocketResX, self).__init__()
 		# Edit the value below this line to your My Documents directory
 		# Leave the quotation marks and the letter r prefix. DO NOT REMOVE
-		self.MyDocuments = r'C:\Users\Joe\Documents'
+		self.MyDocuments = r'C:\Users\Nate\Documents'
 
 		# Only edit if the My Games folder isn't in the My Documents directory. 
 		self.FilePathSuffix = r'\My Games\Rocket League\TAGame\Config\TASystemSettings.ini'
