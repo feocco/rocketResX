@@ -1,7 +1,3 @@
-from tempfile import mkstemp
-from shutil import move
-from os import remove, close
-
 class RocketResX(object):
 	"""Change the string 'ResX=1920' in $myDocuments_Location$\My Games\Rocket League\TAGame\Config\TASystemSettings.ini to 'ResX=3840'."""
 	def __init__(self, arg):
@@ -21,17 +17,16 @@ class RocketResX(object):
 		
 
 	def replace(self, file_path, pattern, subst):
-		#Create temp file
-		fh, abs_path = mkstemp()
-		with open(abs_path, 'w') as new_file:
-			with open(file_path) as old_file:
-				for line in old_file:
-					new_file.write(line.replace(pattern, subst))
-		close(fh)
-		#Remove original file
-		remove(file_path)
-		#Move new file
-		move(abs_path, file_path)
+		FileContents = open(file_path).read()
+		if pattern in FileContents:
+			print('Changing "{pattern}" to "{subst}"'.format(pattern, subst))
+			FileContents = FileContents.replace(pattern, subst)
+			f = open(file_path, 'w')
+			f.write(FileContents)
+			f.flush()
+			f.close()
+		else:
+			print('An unexpected value has been entered for ResX or the parameter no longer exists.')
 
 
 	def Monitor1(self):
