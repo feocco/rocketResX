@@ -1,9 +1,7 @@
 class RocketResX(object):
 	"""Change the string 'ResX=1920' in $myDocuments_Location$\My Games\Rocket League\TAGame\Config\TASystemSettings.ini to 'ResX=3840'."""
-	def __init__(self, arg):
+	def __init__(self, MyDocuments):
 		super(RocketResX, self).__init__()
-		self.arg = arg
-		
 		# Edit the value below this line to your My Documents directory
 		# Leave the quotation marks and the letter r prefix. DO NOT REMOVE
 		MyDocuments = r'C:\Users\Joe\Documents'
@@ -11,17 +9,17 @@ class RocketResX(object):
 		# Only edit if the My Games folder isn't in the My Documents directory. 
 		FilePathSuffix = r'\My Games\Rocket League\TAGame\Config\TASystemSettings.ini'
 		
-		File_path = MyDocuments + FilePathSuffix
+		ConfigFilePath = MyDocuments + FilePathSuffix
 		Monitors1 = 'ResX=1920'
 		Monitors2 = 'ResX=3840'
 		
 
-	def replace(self, file_path, pattern, subst):
-		FileContents = open(file_path).read()
+	def replace(self, FilePath, pattern, subst):
+		FileContents = open(FilePath).read()
 		if pattern in FileContents:
 			print('Changing "{pattern}" to "{subst}"'.format(pattern, subst))
 			FileContents = FileContents.replace(pattern, subst)
-			f = open(file_path, 'w')
+			f = open(FilePath, 'w')
 			f.write(FileContents)
 			f.flush()
 			f.close()
@@ -29,9 +27,12 @@ class RocketResX(object):
 			print('An unexpected value has been entered for ResX or the parameter no longer exists.')
 
 
-	def Monitor1(self):
-		self.replace(self.file_path, Monitors2, Monitors1)
+	def runtime(self):
+		inp = raw_input('Press 1 for 1 Monitor.\nPress 2 for 2 Monitors.')
+		if inp == '1':
+			self.replace(self.ConfigFilePath, self.Monitors2, self.Monitors1)
+		else:
+			self.replace(self.ConfigFilePath, self.Monitors1, self.Monitors2)
 
-
-	def Monitors2(self):
-		self.replace(self.file_path, Monitors1, Monitors2)
+execute = RocketResX()
+execute.runtime()
