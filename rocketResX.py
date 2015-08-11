@@ -18,6 +18,7 @@ class RocketResX(object):
 		
 
 	def replace(self, FilePath, pattern, subst):
+		""" Does an in-place substitution in a text file. Think find and replace. """
 		FileContents = open(FilePath).read()
 		if pattern in FileContents:
 			print('Changing "{0}" to "{1}"'.format(pattern, subst))
@@ -26,15 +27,21 @@ class RocketResX(object):
 			f.write(FileContents)
 			f.flush()
 			f.close()
+		elif subst in FileContents:
+			# Break out of function
+			return None
 		else:
 			print('An unexpected value has been entered for ResX or the parameter no longer exists.')
 
 
 	def runtime(self):
+		""" The container to execute the Class functions. """
 		print('This script changes the X axis resolution value for Rocket League.\nThe game will launch after a value is entered.\n')
-		inp = input('Enter 1 for 1 Monitor.\nEnter 2 for 2 Monitors.\nEnter C to cancel\n')
+		inp = input('Enter 1 for 1 Monitor.\nEnter 2 for 2 Monitors.\nEnter C to cancel\n').lower()
 		if inp == '1':
 			self.replace(self.ConfigFilePath, self.Monitors2, self.Monitors1)
+		elif inp == 'c':
+			return None
 		else:
 			self.replace(self.ConfigFilePath, self.Monitors1, self.Monitors2)
 		print('Starting Rocket League...')
