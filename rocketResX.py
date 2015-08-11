@@ -1,3 +1,6 @@
+import os
+import time
+
 class RocketResX(object):
 	"""Change the string 'ResX=1920' in $myDocuments_Location$\My Games\Rocket League\TAGame\Config\TASystemSettings.ini to 'ResX=3840'."""
 	def __init__(self):
@@ -28,11 +31,15 @@ class RocketResX(object):
 
 
 	def runtime(self):
-		inp = input('Press 1 for 1 Monitor.\nPress 2 for 2 Monitors.\n')
+		print('This script changes the X axis resolution value for Rocket League.\nThe game will launch after a value is entered.\n')
+		inp = input('Enter 1 for 1 Monitor.\nEnter 2 for 2 Monitors.\nEnter C to cancel\n')
 		if inp == '1':
 			self.replace(self.ConfigFilePath, self.Monitors2, self.Monitors1)
 		else:
 			self.replace(self.ConfigFilePath, self.Monitors1, self.Monitors2)
+		print('Starting Rocket League...')
+		os.system(r'START /D "D:\STEAM GAMES\steamapps\common\rocketleague\Binaries\Win32\" "" /wait RocketLeague.exe')
+		time.sleep(2)
 
 execute = RocketResX()
 execute.runtime()
