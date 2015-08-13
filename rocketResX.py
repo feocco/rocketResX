@@ -7,10 +7,10 @@ class RocketResX(object):
 		super(RocketResX, self).__init__()
 		# Edit the value below this line to your My Documents directory
 		# Leave the quotation marks and the letter r prefix. DO NOT REMOVE
-		self.MyDocuments = r'C:\Users\Joe\Documents'
+		self.MyDocuments = f = open('config.txt').read()[8:] + '\Rocket League\TAGame\Config\TASystemSettings.ini'
 
 		# Only edit if the My Games folder isn't in the My Documents directory. 
-		self.FilePathSuffix = r'\My Games\Rocket League\TAGame\Config\TASystemSettings.ini'
+		self.FilePathSuffix = r''
 		
 		self.ConfigFilePath = self.MyDocuments + self.FilePathSuffix
 		self.Monitors1 = 'ResX=1920'
@@ -47,6 +47,7 @@ class RocketResX(object):
 		print('Starting Rocket League...')
 		os.system(r'START /D "D:\STEAM GAMES\steamapps\common\rocketleague\Binaries\Win32\" "" /wait RocketLeague.exe')
 		time.sleep(2)
+
 
 execute = RocketResX()
 execute.runtime()
