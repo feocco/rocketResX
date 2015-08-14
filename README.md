@@ -4,5 +4,7 @@
 
 # Steps to set up:
    Download dist directory.
+   
    Edit values in dist\config.txt
+   
    Execute rocketResX.exe
