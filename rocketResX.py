@@ -1,4 +1,3 @@
-import os
 import time
 import subprocess
 
@@ -35,10 +34,10 @@ class RocketResX(object):
 		""" The container to execute the Class functions. """
 		print('This script changes the X axis resolution value for Rocket League.\nThe game will launch after a value is entered.\n')
 		
-		path = os.path.abspath(os.path.dirname(open('config.txt').readlines()[1][11:] + 'common\\rocketleague\\Binaries\\Win32\\'))
+		path = open('config.txt').readlines()[1][11:] + 'common\\rocketleague\\Binaries\\Win32\\RocketLeague.exe'
 
 		inp = input('Enter 1 for 1 Monitor.\nEnter 2 for 2 Monitors.\nEnter C to cancel\n').lower()
-		
+
 		if inp == '1':
 			self.replace(self.ConfigFilePath, self.Monitors2, self.Monitors1)
 		elif inp == 'c':
@@ -46,8 +45,8 @@ class RocketResX(object):
 		else:
 			self.replace(self.ConfigFilePath, self.Monitors1, self.Monitors2)
 
-		process = subprocess.Popen('RocketLeague.exe', executable=r'D:\STEAM GAMES\steamapps\common\rocketleague\Binaries\Win32\\RocketLeague.exe')
-		time.sleep(2)
+		process = subprocess.call(path)
+		time.sleep(10)
 
 
 execute = RocketResX()
