@@ -1,2 +1,0 @@
-MyGames=C:\Users\Joe\Documents\My Games\
-SteamDir=D:\STEAM GAMES\steamapps\
